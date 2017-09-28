@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:background="@drawable/bg_home"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
@@ -13,8 +14,8 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="107dp"
-            android:scaleType="fitXY"
             android:background="@drawable/superman"
+            android:scaleType="fitXY"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -33,6 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/gv_home"
+            android:layout_centerInParent="true"
             android:gravity="center"
             android:horizontalSpacing="10dp"
             android:verticalSpacing="10dp"

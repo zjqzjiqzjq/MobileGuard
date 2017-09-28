@@ -21,8 +21,7 @@ public class SplashActivity extends AppCompatActivity {
         mTvVersion = (TextView) findViewById(R.id.tv_splash_version);
         mTvVersion.setText("版本号"+mVersion);
         final VersionUpdateUtils versionUpdateUtils = new VersionUpdateUtils(mVersion,SplashActivity.this);
-        new Thread(){
-            @Override
+        new Thread( ){
             public void run(){
                 super.run();
                 try {

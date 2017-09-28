@@ -45,7 +45,7 @@ public class VersionUpdateUtils {
                     Toast.makeText(context,"IO错误",Toast.LENGTH_LONG).show();
                     break;
                 case MESSAGE_JSON_ERROR:
-                    Toast.makeText(context,"JSON错误",Toast.LENGTH_LONG).show();
+                    Toast.makeText(context,"JSON解析错误",Toast.LENGTH_LONG).show();
                     break;
                 case MESSAGE_SHOW_DIALOG:
                     showUpdateDialog(versionEntity);
@@ -58,10 +58,6 @@ public class VersionUpdateUtils {
             }
         }
     };
-
-
-
-    
 
     public VersionUpdateUtils(String mVersion, Activity context) {
         this.mVersion = mVersion;
@@ -77,7 +73,7 @@ public class VersionUpdateUtils {
             HttpResponse execute = httpclient.execute(httpGet);
             if (execute.getStatusLine().getStatusCode() == 200) {
                 HttpEntity httpEntity = execute.getEntity();
-                String result = EntityUtils.toString(httpEntity, "utf-8");
+                String result = EntityUtils.toString(httpEntity,"utf-8");
                 JSONObject jsonObject = new JSONObject(result);
                 versionEntity = new VersionEntity();
                 versionEntity.versioncode = jsonObject.getString("code");
@@ -85,9 +81,9 @@ public class VersionUpdateUtils {
                 versionEntity.apkurl = jsonObject.getString("apkurl");
                 if (!mVersion.equals(versionEntity.versioncode)) {
                     handler.sendEmptyMessage(MESSAGE_SHOW_DIALOG);
-                    System.out.println(versionEntity.description);
+                    /*System.out.println(versionEntity.description);
                     DownloadUtils downloadUtils = new DownloadUtils();
-                    downloadUtils.downloadApk(versionEntity.apkurl, "mobileguard.apk", context);
+                    downloadUtils.downloadApk(versionEntity.apkurl, "mobileguard.apk", context);*/
                 }
             }
         } catch (IOException e) {
