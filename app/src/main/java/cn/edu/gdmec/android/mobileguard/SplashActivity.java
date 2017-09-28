@@ -4,8 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import org.json.JSONException;
-
 import cn.edu.gdmec.android.mobileguard.m1home.utils.MyUtils;
 import cn.edu.gdmec.android.mobileguard.m1home.utils.VersionUpdateUtils;
 
@@ -18,19 +16,15 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         mVersion = MyUtils.getVersion(getApplicationContext());
-        mTvVersion = (TextView) findViewById(R.id.tv_splash_version);
-        mTvVersion.setText("版本号"+mVersion);
+        mTvVersion = (TextView)findViewById(R.id.tv_splash_version);
+        mTvVersion.setText("版本号："+mTvVersion);
         final VersionUpdateUtils versionUpdateUtils = new VersionUpdateUtils(mVersion,SplashActivity.this);
-        new Thread( ){
-            public void run(){
-                super.run();
-                try {
-                    versionUpdateUtils.getCloudVersion();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
-
+         new Thread(){
+             @Override
+             public  void run(){
+                 super.run();
+                versionUpdateUtils.getCloudVersion();
+             }
+         }.start();
     }
 }

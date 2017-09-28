@@ -10,19 +10,17 @@ import android.widget.TextView;
 import cn.edu.gdmec.android.mobileguard.R;
 
 /**
- * Created by Administrator on 2017/9/25/025.
+ * Created by Administrator on 2017/9/24 0024.
  */
 
 public class HomeAdapter extends BaseAdapter{
-    int[] imageId = {R.drawable.safe,R.drawable.callmsgsafe,R.drawable.app,R.drawable.trojan,
-    R.drawable.sysoptimize,R.drawable.taskmanager,R.drawable.netmanager,R.drawable.atools,
-    R.drawable.settings};
+    int[] imageId = {R.drawable.safe, R.drawable.callmsgsafe,R.drawable.app,R.drawable.trojan,R.drawable.sysoptimize,R.drawable.taskmanager,R.drawable.netmanager,R.drawable.atools,R.drawable.settings};
     String[] names = {"手机防盗","通讯卫士","软件管家","手机杀毒","缓存清理","进程管理","流量统计","高级工具","设置中心"};
     private Context context;
-
-    public HomeAdapter(Context context){
+    public  HomeAdapter(Context context){
         this.context = context;
     }
+
     @Override
     public int getCount() {
         return 9;
@@ -40,11 +38,12 @@ public class HomeAdapter extends BaseAdapter{
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View view1 = View.inflate(context, R.layout.item_home,null);
+        View view1 = View.inflate(context,R.layout.item_home,null);
         ImageView iv_icon = view1.findViewById(R.id.iv_home);
-        TextView tv_name = view1.findViewById(R.id.tv_home);
+        TextView tv_name = view1.findViewById(R.id.tv_name);
         iv_icon.setImageResource(imageId[i]);
         tv_name.setText(names[i]);
         return view1;
+
     }
 }
