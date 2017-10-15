@@ -138,7 +138,9 @@ public class HomeActivity extends AppCompatActivity {
 
     private void savePswd(String affirmPwsd) {
         SharedPreferences.Editor editor = msharedPreferences.edit();
+
         editor.putString("PhoneAntiTheftPWD", MD5Utils.encode(affirmPwsd));
+
         editor.commit();
     }
 
