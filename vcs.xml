@@ -22,8 +22,16 @@
           <option name="url" value="https://github.com/zhuge06666/MobileGuard.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/zjqzjiqzjq/MyGuard.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://github.com" />
+          <option name="userName" value="zjqzjiqzjq" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/Desktop/0838android" />
+    <option name="cloneParentDir" value="$USER_HOME$/Desktop/" />
   </component>
 </application>
