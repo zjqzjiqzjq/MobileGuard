@@ -13,7 +13,7 @@ public class MyUtils {
         PackageManager packageManager = context.getPackageManager();
         try{
             PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(),0);
-            return packageInfo.packageName;
+            return packageInfo.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return "";
