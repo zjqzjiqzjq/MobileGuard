@@ -20,7 +20,7 @@ public class Setup4Activity extends BaseSetUpActivity {
     }
     @Override
     public void showNext(){
-        startActivityAndFinishSelf(Setup3Activity.class);
+        startActivityAndFinishSelf(Setup1Activity.class);
     }
     @Override
     public void showPre(){
