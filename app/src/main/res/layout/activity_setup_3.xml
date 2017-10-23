@@ -48,7 +48,7 @@
                 android:layout_weight="5"
                 android:background="@drawable/coner_white_rec"
                 android:drawableLeft="@drawable/contact_et_left_icon"
-                android:hint="请输入安全密码"
+                android:hint="请输入安全号码"
                 android:inputType="phone"
                 android:textColorHint="@color/purple" />
 
@@ -62,15 +62,16 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_weight="10"
-            android:background="@color/purple"
-            android:gravity="center">
 
-            <include layout="@layout/setup_radiogroup" />
-        </LinearLayout>
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_weight="10"
+        android:background="@color/purple"
+        android:gravity="center">
+
+        <include layout="@layout/setup_radiogroup" />
     </LinearLayout>
 </LinearLayout>
