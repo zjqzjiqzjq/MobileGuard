@@ -6,15 +6,6 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_weight="10"
-        android:background="@color/purple"
-        android:gravity="center">
-        <include layout="@layout/setup_radiogroup"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="100"
         android:background="@android:color/white"
@@ -57,7 +48,7 @@
                 android:layout_weight="5"
                 android:background="@drawable/coner_white_rec"
                 android:drawableLeft="@drawable/contact_et_left_icon"
-                android:hint="请输入安全密码"
+                android:hint="请输入安全号码"
                 android:inputType="phone"
                 android:textColorHint="@color/purple" />
 
@@ -67,8 +58,20 @@
                 android:layout_height="45dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/sim_bind_selector" />
+                android:background="@drawable/add" />
 
         </LinearLayout>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_weight="10"
+        android:background="@color/purple"
+        android:gravity="center">
+
+        <include layout="@layout/setup_radiogroup" />
     </LinearLayout>
 </LinearLayout>
