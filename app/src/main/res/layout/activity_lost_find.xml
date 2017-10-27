@@ -23,7 +23,6 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
-            android:text="安全号码"
             android:textColor="@color/purple"/>
     </RelativeLayout>
     <View
@@ -45,7 +44,7 @@
         <ToggleButton
             android:id="@+id/togglebtn_lostfind"
             android:layout_width="70dp"
-            android:layout_height="3dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
