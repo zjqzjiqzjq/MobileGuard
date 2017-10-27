@@ -38,7 +38,7 @@
             android:background="@android:color/white">
 
             <TextView
-                android:id="@+id/tv_setup_status"
+                android:id="@+id/tv_setup4_status"
                 style="@style/textview16sp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
