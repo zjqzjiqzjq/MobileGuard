@@ -4,12 +4,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import cn.edu.gdmec.android.mobileguard.App;
+/**
+ * Created by Administrator on 2017/10/23/023.
+ */
 
-public class BootCompleteReceiver extends BroadcastReceiver {
-
+public class MyDeviceAdminReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        ((App)(context.getApplicationContext())).correctSIM();
+
     }
 }

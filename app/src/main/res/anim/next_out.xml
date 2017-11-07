@@ -1,3 +1,4 @@
+<!--
 <?xml version="1.0" encoding="utf-8"?>
 <translate xmlns:android="http://schemas.android.com/apk/res/android"
            android:fromXDelta="0"
@@ -7,4 +8,11 @@
            android:duration="500"
            android:repeatCount="0">
 
-</translate>
+</translate>-->
+<rotate
+    android:duration="3000"
+    android:fromDegrees="0"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:toDegrees="360"
+    xmlns:android="http://schemas.android.com/apk/res/android"/>
