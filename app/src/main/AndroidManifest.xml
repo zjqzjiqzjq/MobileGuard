@@ -82,13 +82,10 @@
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
             </intent-filter>
         </receiver>
-        <receiver
-            android:name=".m3communicationguard.receiver.InterceptSmsReciever"
-            android:enabled="true"
-            android:exported="true">
-        <intent-filter android:priority="2147483647">
-            <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
-        </intent-filter>
+
+        <activity android:name=".m4appmanager.AppManagerActivity"/>
+        <receiver android:name=".m4appmanager.AppManagerActivity$UninstallRececiver">
+
         </receiver>
 
     </application>
