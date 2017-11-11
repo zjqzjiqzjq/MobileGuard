@@ -83,13 +83,13 @@ public class EngineUtils {
         PackageManager pm = context.getPackageManager();
         try {
             PackageInfo packageInfo = pm.getPackageInfo(context.getPackageName(),0);
-            float code = appInfo.appCode;
+            String code = appInfo.appCode;
             String aname = appInfo.appName;
             //String aper = appInfo.appPermissions;
 
             AlertDialog.Builder builder = new Builder(context);
             builder.setTitle(aname);
-            builder.setMessage("Version:" + code + "\nInstall time" + "\nCertificate issuer:" +"\n\nPermissions:");
+            builder.setMessage("Version:" + code + "\nInstall time:" + "\nCertificate issuer:" +"\n\nPermissions:");
             builder.setPositiveButton( "ok", new OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {

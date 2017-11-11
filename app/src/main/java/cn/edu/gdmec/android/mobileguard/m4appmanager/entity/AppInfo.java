@@ -19,7 +19,7 @@ public class AppInfo {
     public long appSize;
 
     /*应用程序版本号*/
-    public float appCode;
+    public String appCode;
 
 
     /*是否是手机储存*/
