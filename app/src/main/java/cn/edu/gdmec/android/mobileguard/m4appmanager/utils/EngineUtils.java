@@ -1,14 +1,24 @@
 package cn.edu.gdmec.android.mobileguard.m4appmanager.utils;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Debug;
 import android.widget.Toast;
 
+import java.io.File;
+
 import cn.edu.gdmec.android.mobileguard.App;
+import cn.edu.gdmec.android.mobileguard.m4appmanager.AppManagerActivity;
+import cn.edu.gdmec.android.mobileguard.m4appmanager.adapter.AppManagerAdapter;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
+
+import static android.app.AlertDialog.*;
 
 /**
  * Created by Administrator on 2017/11/6 0006.
@@ -66,6 +76,43 @@ public class EngineUtils {
             Toast.makeText(context, "系统应用无法卸载", Toast.LENGTH_LONG).show();
         }
     }
+    /**
+     * 关于应用
+     */
+    public static void aboutApplication(final Context context, AppInfo appInfo) {
+        PackageManager pm = context.getPackageManager();
+        try {
+            PackageInfo packageInfo = pm.getPackageInfo(context.getPackageName(),0);
+            float code = appInfo.appCode;
+            String aname = appInfo.appName;
+            //String aper = appInfo.appPermissions;
+
+            AlertDialog.Builder builder = new Builder(context);
+            builder.setTitle(aname);
+            builder.setMessage("Version:" + code + "\nInstall time" + "\nCertificate issuer:" +"\n\nPermissions:");
+            builder.setPositiveButton( "ok", new OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            } );
+            builder.show();
+
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+    }
+
+    /*public void aboutAppAialog(Context context, AppInfo appInfo){
+
+
+    }
+*/
 }
 
 

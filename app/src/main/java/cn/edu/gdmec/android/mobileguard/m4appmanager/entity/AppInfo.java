@@ -17,6 +17,11 @@ public class AppInfo {
     public String apkPath;
     /*应用程序大小*/
     public long appSize;
+
+    /*应用程序版本号*/
+    public float appCode;
+
+
     /*是否是手机储存*/
     public boolean isInRoom;
     /*是否是用户应用*/

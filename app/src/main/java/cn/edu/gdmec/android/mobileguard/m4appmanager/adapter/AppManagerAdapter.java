@@ -40,7 +40,7 @@ public class AppManagerAdapter extends BaseAdapter {
     }
     @Override
     public int getCount() {
-        // 因为有两个条目需要显示用户进程，系统进程因此粗腰加2
+        // 因为有两个条目需要显示用户进程，系统进程因此处要加2
         return UserAppInfos.size() + SystemAppInfos.size() + 2;
     }
 
@@ -106,6 +106,7 @@ public class AppManagerAdapter extends BaseAdapter {
             viewHolder.mSettingAppTV = (TextView) view.findViewById(R.id.tv_setting_app);
             viewHolder.mShareAppTV = (TextView) view.findViewById(R.id.tv_share_app);
             viewHolder.mUninstllTV = (TextView) view.findViewById(R.id.tv_uninstall_app);
+            viewHolder.mAboutAppTV = (TextView) view.findViewById(R.id.tv_about_app);
             viewHolder.mAppOptionLL = (LinearLayout) view.findViewById(R.id.ll_option_app);
             view.setTag(viewHolder);
         }
@@ -125,6 +126,7 @@ public class AppManagerAdapter extends BaseAdapter {
         viewHolder.mSettingAppTV.setOnClickListener(listener);
         viewHolder.mShareAppTV.setOnClickListener(listener);
         viewHolder.mUninstllTV.setOnClickListener(listener);
+        viewHolder.mAboutAppTV.setOnClickListener(listener);
 
         return view;
     }
@@ -153,6 +155,10 @@ public class AppManagerAdapter extends BaseAdapter {
         TextView mShareAppTV;
         /**设置App*/
         TextView mSettingAppTV;
+
+        /**关于App*/
+        TextView mAboutAppTV;
+
         /**app图标*/
         ImageView mAppIconImgv;
         /**app位置*/
@@ -195,6 +201,11 @@ public class AppManagerAdapter extends BaseAdapter {
                         return;
                     }
                     EngineUtils.uninstallApplication(context, appInfo);
+                    break;
+
+                // 关于应用
+                case R.id.tv_about_app:
+                    EngineUtils.aboutApplication(context, appInfo);
                     break;
             }
         }

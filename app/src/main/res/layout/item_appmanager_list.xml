@@ -84,4 +84,5 @@
             android:text="关于"
             android:drawableTop="@drawable/abouticon_yellow_n"/>
     </LinearLayout>
-</LinearLayout>
+
+    </LinearLayout>
