@@ -84,7 +84,7 @@ public class EngineUtils {
     public static void aboutApplication(final Context context, AppInfo appInfo) {
             AlertDialog.Builder builder = new Builder(context);
             builder.setTitle(appInfo.appName);
-            builder.setMessage("Version:" + appInfo.appCode + "\nInstall time:" + new Date(appInfo.appTime).toString() + "\nCertificate issuer:"  + "\n\nPermissions:" + appInfo.appPremissions);
+            builder.setMessage("Version:" + appInfo.appCode + "\nInstall time:" + new Date(appInfo.appTime).toString() + "\nCertificate issuer:"  + appInfo.appSign + "\n\nPermissions:" + appInfo.appPremissions);
             builder.setPositiveButton( "ok", new OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {

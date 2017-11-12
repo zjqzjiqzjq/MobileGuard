@@ -31,7 +31,8 @@ public class AppInfoParser {
     public static List<AppInfo> getAppInfos(Context context){
         //获取包管理器
         PackageManager pm = context.getPackageManager();
-        List<PackageInfo> packInfos = pm.getInstalledPackages(0);
+        //若要获得已安装app的签名和权限信息，要在获取时传入相关flags，否则不会获取。
+        List<PackageInfo> packInfos = pm.getInstalledPackages(PackageManager.GET_SIGNATURES+PackageManager.GET_PERMISSIONS);
 
         List<AppInfo> appinfos = new ArrayList<AppInfo>();
         for (PackageInfo packInfo:packInfos){
@@ -69,6 +70,7 @@ public class AppInfoParser {
                 }
                 appinfo.appPremissions = sb.toString();
             }
+
 
             //应用程序apk包的路径
             String apkpath = packInfo.applicationInfo.sourceDir;
