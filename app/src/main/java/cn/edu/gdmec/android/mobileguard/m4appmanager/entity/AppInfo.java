@@ -1,5 +1,6 @@
 package cn.edu.gdmec.android.mobileguard.m4appmanager.entity;
 
+import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 
 /**
@@ -20,6 +21,12 @@ public class AppInfo {
 
     /*应用程序版本号*/
     public String appCode;
+    /*应用程序安装时间*/
+    public long appTime;
+    /*应用程序签名信息*/
+    public String appSign;
+    /*应用程序权限申请信息*/
+    public String appPremissions;
 
 
     /*是否是手机储存*/

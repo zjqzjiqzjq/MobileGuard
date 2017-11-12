@@ -4,9 +4,15 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.InputStream;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +32,7 @@ public class AppInfoParser {
         //获取包管理器
         PackageManager pm = context.getPackageManager();
         List<PackageInfo> packInfos = pm.getInstalledPackages(0);
+
         List<AppInfo> appinfos = new ArrayList<AppInfo>();
         for (PackageInfo packInfo:packInfos){
             AppInfo appinfo = new AppInfo();
@@ -38,6 +45,30 @@ public class AppInfoParser {
 
             String appcode = packInfo.versionName;
             appinfo.appCode = appcode;
+            long apptime = packInfo.firstInstallTime;
+            appinfo.appTime = apptime;
+
+            final Signature[] signatures = packInfo.signatures;
+            for (final Signature sig : signatures) {
+                final byte[] rawCert = sig.toByteArray();
+                InputStream inputStream = new ByteArrayInputStream(rawCert);
+                try {
+                    CertificateFactory certificateFactory = CertificateFactory.getInstance("X509");
+                    X509Certificate x509Certificate = (X509Certificate) certificateFactory.generateCertificate(inputStream);
+                    appinfo.appSign = x509Certificate.getIssuerDN() + "";
+                } catch (CertificateException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            StringBuilder sb = new StringBuilder();
+            if (packInfo.requestedPermissions != null) {
+                for (String per:packInfo.requestedPermissions) {
+                    sb.append(per + "\n");
+                }
+                appinfo.appPremissions = sb.toString();
+            }
 
             //应用程序apk包的路径
             String apkpath = packInfo.applicationInfo.sourceDir;

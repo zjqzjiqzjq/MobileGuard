@@ -7,11 +7,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.net.Uri;
 import android.os.Debug;
 import android.widget.Toast;
 
 import java.io.File;
+import java.util.Date;
 
 import cn.edu.gdmec.android.mobileguard.App;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.AppManagerActivity;
@@ -80,16 +82,9 @@ public class EngineUtils {
      * 关于应用
      */
     public static void aboutApplication(final Context context, AppInfo appInfo) {
-        PackageManager pm = context.getPackageManager();
-        try {
-            PackageInfo packageInfo = pm.getPackageInfo(context.getPackageName(),0);
-            String code = appInfo.appCode;
-            String aname = appInfo.appName;
-            //String aper = appInfo.appPermissions;
-
             AlertDialog.Builder builder = new Builder(context);
-            builder.setTitle(aname);
-            builder.setMessage("Version:" + code + "\nInstall time:" + "\nCertificate issuer:" +"\n\nPermissions:");
+            builder.setTitle(appInfo.appName);
+            builder.setMessage("Version:" + appInfo.appCode + "\nInstall time:" + new Date(appInfo.appTime).toString() + "\nCertificate issuer:" + appInfo.appSign + "\n\nPermissions:" + appInfo.appPremissions);
             builder.setPositiveButton( "ok", new OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -97,22 +92,7 @@ public class EngineUtils {
                 }
             } );
             builder.show();
-
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-
-
-
-
-
     }
-
-    /*public void aboutAppAialog(Context context, AppInfo appInfo){
-
-
-    }
-*/
 }
 
 
