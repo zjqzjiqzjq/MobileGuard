@@ -94,14 +94,14 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
                         blackContactInfo.mode = 1;
 
                     }else{
-                        Toast.makeText(this,"请选择拦截模式!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(this,"请选择拦截模式!",Toast.LENGTH_SHORT).show();
                         return;
                     }
                     if(!dao.IsNumberExist(blackContactInfo.phoneNumber)){
                         dao.add(blackContactInfo);
 
                     }else{
-                        Toast.makeText(this,"该号码已经添加至黑名单",Toast.LENGTH_LONG).show();
+                        Toast.makeText(this,"该号码已经添加至黑名单",Toast.LENGTH_SHORT).show();
                     }
                     finish();
                 }
