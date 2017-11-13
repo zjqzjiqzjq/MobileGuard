@@ -93,6 +93,24 @@ public class EngineUtils {
             } );
             builder.show();
     }
+
+
+    /**
+     *关于活动
+     */
+    public static void activityApplication(Context context, AppInfo appInfo) {
+        AlertDialog.Builder builder = new Builder(context);
+        builder.setTitle(appInfo.appName);
+        builder.setMessage(appInfo.appName + "Activities:\n" + appInfo.appActivities);
+        builder.setPositiveButton( "确定", new OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        } );
+        builder.show();
+
+    }
 }
 
 
