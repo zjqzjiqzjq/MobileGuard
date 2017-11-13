@@ -107,6 +107,7 @@ public class AppManagerAdapter extends BaseAdapter {
             viewHolder.mShareAppTV = (TextView) view.findViewById(R.id.tv_share_app);
             viewHolder.mUninstllTV = (TextView) view.findViewById(R.id.tv_uninstall_app);
             viewHolder.mAboutAppTV = (TextView) view.findViewById(R.id.tv_about_app);
+            viewHolder.mActivitiesAppTV = (TextView) view.findViewById(R.id.tv_activity_app);
             viewHolder.mAppOptionLL = (LinearLayout) view.findViewById(R.id.ll_option_app);
             view.setTag(viewHolder);
         }
@@ -127,6 +128,7 @@ public class AppManagerAdapter extends BaseAdapter {
         viewHolder.mShareAppTV.setOnClickListener(listener);
         viewHolder.mUninstllTV.setOnClickListener(listener);
         viewHolder.mAboutAppTV.setOnClickListener(listener);
+        viewHolder.mActivitiesAppTV.setOnClickListener(listener);
 
         return view;
     }
@@ -158,6 +160,8 @@ public class AppManagerAdapter extends BaseAdapter {
 
         /**关于App*/
         TextView mAboutAppTV;
+        /**活动App*/
+        TextView mActivitiesAppTV;
 
         /**app图标*/
         ImageView mAppIconImgv;
@@ -207,6 +211,8 @@ public class AppManagerAdapter extends BaseAdapter {
                 case R.id.tv_about_app:
                     EngineUtils.aboutApplication(context, appInfo);
                     break;
+                case R.id.tv_activity_app:
+                    EngineUtils.activityApplication(context, appInfo);
             }
         }
     }

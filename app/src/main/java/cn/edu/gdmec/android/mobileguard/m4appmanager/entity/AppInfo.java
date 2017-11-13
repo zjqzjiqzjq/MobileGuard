@@ -2,6 +2,7 @@ package cn.edu.gdmec.android.mobileguard.m4appmanager.entity;
 
 import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
+import android.hardware.camera2.params.StreamConfigurationMap;
 
 /**
  * Created by Administrator on 2017/11/6 0006.
@@ -27,6 +28,8 @@ public class AppInfo {
     public String appSign;
     /*应用程序权限申请信息*/
     public String appPremissions;
+    /*应用程序的活动*/
+    public String appActivities;
 
 
     /*是否是手机储存*/
