@@ -16,6 +16,10 @@
     <uses-permission android:name="android.permission.READ_CALL_LOG"/>
     <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -82,11 +86,18 @@
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
             </intent-filter>
         </receiver>
-
         <activity android:name=".m4appmanager.AppManagerActivity"/>
-        <receiver android:name=".m4appmanager.AppManagerActivity$UninstallRececiver">
 
+        <receiver android:name=".m4appmanager.AppManagerActivity$UninstallRececiver">
         </receiver>
+
+        <activity android:name=".m5virusscan.VirusScanActivity"/>
+
+        <activity android:name=".m5virusscan.VirusScanSpeedActivity"/>
+
+
+
+
 
     </application>
 
