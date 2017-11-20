@@ -1,6 +1,7 @@
 package cn.edu.gdmec.android.mobileguard.m4appmanager.utils;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -14,6 +15,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
@@ -23,6 +25,9 @@ import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
  */
 
 public class AppInfoParser {
+    public AppInfoParser() {
+    }
+
     /**
      * 获取手机里面的所有的应用程序
      *@param context 上下文
@@ -32,7 +37,7 @@ public class AppInfoParser {
         //获取包管理器
         PackageManager pm = context.getPackageManager();
         //若要获得已安装app的签名和权限信息，要在获取时传入相关flags，否则不会获取。
-        List<PackageInfo> packInfos = pm.getInstalledPackages(PackageManager.GET_SIGNATURES+PackageManager.GET_PERMISSIONS);
+        List<PackageInfo> packInfos = pm.getInstalledPackages(PackageManager.GET_SIGNATURES+PackageManager.GET_PERMISSIONS+PackageManager.GET_ACTIVITIES);
 
         List<AppInfo> appinfos = new ArrayList<AppInfo>();
         for (PackageInfo packInfo:packInfos){
@@ -70,6 +75,10 @@ public class AppInfoParser {
                 }
                 appinfo.appPremissions = sb.toString();
             }
+
+            appinfo.appActivities = Arrays.toString(packInfo.activities);
+
+
 
 
             //应用程序apk包的路径
