@@ -20,7 +20,6 @@
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
 
-
     <application
         android:name=".App"
         android:allowBackup="true"

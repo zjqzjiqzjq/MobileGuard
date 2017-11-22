@@ -48,7 +48,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:gravity="center">
-
         <Button
             android:id="@+id/btn_cleanall"
             android:layout_width="312dp"

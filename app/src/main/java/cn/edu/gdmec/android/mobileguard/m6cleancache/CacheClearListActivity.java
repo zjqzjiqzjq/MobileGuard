@@ -80,6 +80,7 @@ public class CacheClearListActivity extends AppCompatActivity implements View.On
         //隐藏标题栏
         setContentView(R.layout.activity_add_black_number);
         getSupportActionBar().hide();
+
         setContentView(R.layout.activity_cache_clear_list);
         pm = getPackageManager();
         initView();

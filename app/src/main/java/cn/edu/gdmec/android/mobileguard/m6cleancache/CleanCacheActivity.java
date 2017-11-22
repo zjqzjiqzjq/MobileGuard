@@ -26,6 +26,7 @@ import cn.edu.gdmec.android.mobileguard.R;
 public class CleanCacheActivity  extends AppCompatActivity implements View.OnClickListener{
     protected static final int CLEANNING = 100;
     protected static final int CLEAN_FINISH =10;
+
     private AnimationDrawable animation;
     private long cacheMemory;
     private TextView mMemoryTV;

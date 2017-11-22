@@ -24,7 +24,6 @@ public class CacheCleanAdapter extends BaseAdapter{
         this.context = context;
         this.cacheInfos = cacheInfos;
     }
-
     @Override
     public int getCount() {
         return cacheInfos.size();
