@@ -134,9 +134,11 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
                         break;
                     case 2:
                         //中国联通
+                        smsManager.sendTextMessage( "10010", null, "LLCX", null, null );
                         break;
                     case 3:
                         //中国电信
+                        smsManager.sendTextMessage( "10001", null, "CXLL", null, null );
                         break;
                 }
         }
@@ -145,7 +147,7 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
     class CorrectFlowReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Objects[] objs = (Objects[]) intent.getExtras().get( "pdus" );
+            Object[] objs = (Object[]) intent.getExtras().get( "pdus" );
             for (Object obj : objs) {
                 SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) obj);
                 String body = smsMessage.getMessageBody();
@@ -154,7 +156,7 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
                 if (!address.equals( "10086" )) {
                     return;
                 }
-                String[] split = body.split( "," );
+                String[] split = body.split( "，" );
                 System.out.println(split[0]);
                 //本月剩余流量
                 long left = 0;
@@ -165,13 +167,13 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
                 for (int i = 0; i < split.length; i++) {
                     if (split[i].contains( "当月常用流量已用" )) {
                         //流量总量
-                        String usedflow = split[i].substring( 9, split[i].length() );
+                        String usedflow = split[i].substring( 8, split[i].length() );
                         used = getStringTofloat(usedflow);
                     } else if (split[i].contains( "可用" )) {
-                        String leftflow = split[i].substring( 3, split[i].length() );
+                        String leftflow = split[i].substring( 2, split[i].length() );
                         left = getStringTofloat(leftflow);
                     } else if (split[i].contains( "套餐外流量" )) {
-                        String beyongflow = split[i].substring( 6, split[i].length() );
+                        String beyongflow = split[i].substring( 5, split[i].length() );
                         beyong = getStringTofloat(beyongflow);
                     }
                 }
