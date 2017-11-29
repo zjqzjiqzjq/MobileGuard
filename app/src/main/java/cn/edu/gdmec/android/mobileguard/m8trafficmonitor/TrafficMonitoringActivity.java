@@ -99,7 +99,7 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
         if (mobileGPRS < 0) {
             mobileGPRS = 0;
         }
-        mToDayTV.setText( "本月已用：" + Formatter.formatFileSize(this, mobileGPRS) );
+        mToDayTV.setText( "本日已用：" + Formatter.formatFileSize(this, mobileGPRS) );
     }
 
     private void registReciver() {
