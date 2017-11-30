@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Objects;
 
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m8trafficmonitor.db.dao.TrafficDao;
@@ -60,8 +59,8 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
     }
     private void initView() {
         findViewById( R.id.rl_titlebar ).setBackgroundColor( getResources().getColor( R.color.light_green ) );
-        ImageView mLeftImgv = (ImageView) findViewById( R.id.imgv_leftbtn );
         ((TextView) findViewById( R.id.tv_title )).setText( "流量监控" );
+        ImageView mLeftImgv = (ImageView) findViewById( R.id.imgv_leftbtn );
         mLeftImgv.setOnClickListener( this );
         mLeftImgv.setImageResource( R.drawable.back );
         ImageView mRightImgv = (ImageView) findViewById( R.id.imgv_rightbtn );
@@ -90,7 +89,7 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
             }
         }
         mTotalTV.setText( "本月流量：" + Formatter.formatFileSize(this, totalflow) );
-        mUsedTV.setText( "本月已用：" + Formatter.formatFileSize(this, usedflow) );
+        mUsedTV.setText( "本月已用：" + Formatter.formatFileSize( this, usedflow ) );
         dao = new TrafficDao( this );
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
@@ -147,6 +146,7 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
     class CorrectFlowReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
+            //Object[] objs = (Object[]) intent.getExtras().get( "pdus" );
             Object[] objs = (Object[]) intent.getExtras().get( "pdus" );
             for (Object obj : objs) {
                 SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) obj);
@@ -164,16 +164,17 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
                 long used = 0;
                 //本月超出流量
                 long beyong = 0;
+
                 for (int i = 0; i < split.length; i++) {
                     if (split[i].contains( "当月常用流量已用" )) {
                         //流量总量
-                        String usedflow = split[i].substring( 8, split[i].length() );
+                        String usedflow = split[i].substring( 9, split[i].length() );
                         used = getStringTofloat(usedflow);
                     } else if (split[i].contains( "可用" )) {
-                        String leftflow = split[i].substring( 2, split[i].length() );
+                        String leftflow = split[i].substring( 3, split[i].length() );
                         left = getStringTofloat(leftflow);
                     } else if (split[i].contains( "套餐外流量" )) {
-                        String beyongflow = split[i].substring( 5, split[i].length() );
+                        String beyongflow = split[i].substring( 6, split[i].length() );
                         beyong = getStringTofloat(beyongflow);
                     }
                 }
