@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="purple">#5542B8</color>
 
+
     <color name="bright_purple">#C218D9</color>
     <color name="light_gary">#D1D0CE</color>
 
@@ -21,5 +22,10 @@
     <color name="white">#ffffff</color>
     <color name="blue">#2684DC</color>
     <color name="light_blue">#1671CE</color>
+
+    <!--缓存清理模块用到的-->
+    <color name="light_rose_red">#F73CA7</color>
+    <color name="rose_red">#E72993</color>
+
 
 </resources>

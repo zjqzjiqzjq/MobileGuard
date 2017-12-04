@@ -22,6 +22,7 @@ public class App extends Application {
     public void correctSIM() {
         SharedPreferences sp = getSharedPreferences("config", Context.MODE_PRIVATE);
         boolean protecting = sp.getBoolean("protecting", true);
+
         if (protecting) {
             String bindsim = sp.getString("sim", "");
             TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
