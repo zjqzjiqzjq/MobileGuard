@@ -166,7 +166,7 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
                 long beyong = 0;
 
                 for (int i = 0; i < split.length; i++) {
-                    if (split[i].contains( "当月常用流量已用" )) {
+                    if (split[i].contains( "您当月常用流量已用" )) {
                         //流量总量
                         String usedflow = split[i].substring( 9, split[i].length() );
                         used = getStringTofloat(usedflow);
@@ -178,6 +178,7 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
                         beyong = getStringTofloat(beyongflow);
                     }
                 }
+
                 SharedPreferences.Editor edit = mSP.edit();
                 System.out.println("-----" + left);
                 edit.putLong( "totalflow", used + left );
