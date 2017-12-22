@@ -33,6 +33,7 @@ public class App extends Application {
             if (bindsim.equals(realsim)){
                 Log.i("", "sim卡未发生改变，还是您的手机");
             }else {
+
                 Log.i("", "sim卡改变了");
                 String safenumber = sp.getString("safephone", "");
                 if (!TextUtils.isEmpty(safenumber)){
