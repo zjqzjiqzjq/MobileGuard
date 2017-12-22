@@ -93,7 +93,7 @@ public class AppLockService extends Service {
         // 获取ActivityManager对象
         am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
         startApplockService();
-
+        super.onCreate();
     }
 
     @Override
