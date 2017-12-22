@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,7 +15,6 @@ import cn.edu.gdmec.android.mobileguard.R;
  */
 
 public class AdvancedToolsActivity extends AppCompatActivity implements View.OnClickListener {
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -36,6 +36,7 @@ public class AdvancedToolsActivity extends AppCompatActivity implements View.OnC
         findViewById(R.id.advanceview_numbelongs).setOnClickListener(this);
         findViewById(R.id.advanceview_smsbackup).setOnClickListener(this);
         findViewById(R.id.advanceview_smsreducition).setOnClickListener(this);
+        findViewById(R.id.startservice).setOnClickListener(this);
     }
 
     @Override
@@ -48,6 +49,9 @@ public class AdvancedToolsActivity extends AppCompatActivity implements View.OnC
                 //进入归属地查询页面
                 startActivity(NumBelongtoActivity.class);
                 break;
+            case R.id.advanceview_applock:
+                startActivity(AppLockActivity.class);
+                break;
         }
     }
     /**
@@ -58,4 +62,5 @@ public class AdvancedToolsActivity extends AppCompatActivity implements View.OnC
         Intent intent = new Intent(this,cls);
         startActivity(intent);
     }
+
 }
