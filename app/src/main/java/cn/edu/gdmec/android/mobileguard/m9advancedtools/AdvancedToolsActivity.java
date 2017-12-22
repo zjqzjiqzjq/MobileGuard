@@ -36,7 +36,6 @@ public class AdvancedToolsActivity extends AppCompatActivity implements View.OnC
         findViewById(R.id.advanceview_numbelongs).setOnClickListener(this);
         findViewById(R.id.advanceview_smsbackup).setOnClickListener(this);
         findViewById(R.id.advanceview_smsreducition).setOnClickListener(this);
-        findViewById(R.id.startservice).setOnClickListener(this);
     }
 
     @Override
