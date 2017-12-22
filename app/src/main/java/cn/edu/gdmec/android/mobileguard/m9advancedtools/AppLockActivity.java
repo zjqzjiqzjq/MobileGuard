@@ -3,12 +3,10 @@ package cn.edu.gdmec.android.mobileguard.m9advancedtools;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,11 +30,12 @@ public class AppLockActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_lock);
+        initView();
         initListener();
     }
 
     @Override
-    public void onClick(View view){
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.imgv_leftbtn:
                 finish();
@@ -51,11 +50,11 @@ public class AppLockActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initListener() {
-        mAppViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener(){
+        mAppViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
             public void onPageSelected(int arg0) {
-                if (arg0 == 0) {
+                if(arg0 == 0){
                     slideUnLockView.setBackgroundResource(R.drawable.slide_view);
                     slideLockView.setBackgroundColor(getResources().getColor(R.color.transparent));
                     //未加锁
@@ -80,6 +79,7 @@ public class AppLockActivity extends AppCompatActivity implements View.OnClickLi
 
             }
         });
+
     }
 
     private void initView() {
@@ -102,15 +102,12 @@ public class AppLockActivity extends AppCompatActivity implements View.OnClickLi
         mFragments.add(lock);
         mAppViewPager.setAdapter(new MyAdapter(getSupportFragmentManager()));
 
-
     }
-
     class MyAdapter extends FragmentPagerAdapter {
 
         public MyAdapter(FragmentManager fm) {
             super(fm);
         }
-
 
         @Override
         public android.support.v4.app.Fragment getItem(int arg0) {
@@ -123,11 +120,6 @@ public class AppLockActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 }
-
-
-
-
-
 
 
 

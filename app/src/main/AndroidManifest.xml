@@ -12,22 +12,22 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
-    <!--通讯卫士部分-->
+    <!-- 通讯卫士部分 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
-    <!--手机杀毒部分-->
+    <!-- 手机杀毒部分 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
-    <!--缓存清理部分-->
+    <!-- 缓存清理部分 -->
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
-    <!--高级工具程序锁部分-->
-    <user-permission
+    <!-- 高级工具程序锁部分 -->
+    <uses-permission
         android:name="android.permission.PACKAGE_USAGE_STATS"
-        tools:ignore="ProtectedPermission" />
+        tools:ignore="ProtectedPermissions" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -36,14 +36,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".m1home.HomeActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- //<activity android:name=".m1home.HomeActivity" /> -->
+        <activity android:name=".m1home.HomeActivity" />
         <activity android:name=".m2theftguard.LostFindActivity" />
         <activity android:name=".m2theftguard.Setup1Activity" />
         <activity android:name=".m2theftguard.Setup2Activity" />
@@ -115,18 +115,24 @@
             android:enabled="true"
             android:exported="true" />
 
-        <receiver android:name=".m8trafficmonitor.reciever.BootCompleteReciever">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
+        <receiver
+            android:name=".m8trafficmonitor.reciever.BootCompleteReciever"
+            android:enabled="true"
+            android:exported="true" />
 
         <activity android:name=".m8trafficmonitor.OperatorSetActivity" />
         <activity android:name=".m8trafficmonitor.TrafficMonitoringActivity" />
         <activity android:name=".m9advancedtools.AdvancedToolsActivity" />
         <activity android:name=".m9advancedtools.NumBelongtoActivity" />
         <activity android:name=".m9advancedtools.EnterPswActivity" />
-        <activity android:name=".m9advancedtools.AppLockActivity"></activity>
+        <activity android:name=".m9advancedtools.AppLockActivity" />
+
+        <service
+            android:name=".m9advancedtools.service.AppLockService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+
     </application>
 
 </manifest>

@@ -32,6 +32,7 @@ public class AdvancedToolsActivity extends AppCompatActivity implements View.OnC
         ((TextView) findViewById(R.id.tv_title)).setText("高级工具");
         mLeftImgv.setOnClickListener(this);
         mLeftImgv.setImageResource(R.drawable.back);
+
         findViewById(R.id.advanceview_applock).setOnClickListener(this);
         findViewById(R.id.advanceview_numbelongs).setOnClickListener(this);
         findViewById(R.id.advanceview_smsbackup).setOnClickListener(this);

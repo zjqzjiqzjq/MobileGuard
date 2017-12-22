@@ -17,33 +17,38 @@ public class SplashActivity extends AppCompatActivity {
     private TextView mTvVersion;
     private String mVersion;
     private static final int MY_PERMISSIONS_REQUEST_PACKAGE_USAGE_STATS = 1101;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spalsh);
         getSupportActionBar().hide();
         mVersion = MyUtils.getVersion(getApplicationContext());
-        mTvVersion = (TextView)findViewById(R.id.tv_splash_version);
-        mTvVersion.setText("版本号："+mVersion);
+        mTvVersion = (TextView) findViewById(R.id.tv_splash_version);
+        mTvVersion.setText("版本号:"+mVersion);
         if (!hasPermission()) {
-            //若用户未开启权限，则引导用户开启"Apps with usage access"权限
+            //若用户未开启权限，则引导用户开启“Apps with usage access”权限
             startActivityForResult(
                     new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS),
                     MY_PERMISSIONS_REQUEST_PACKAGE_USAGE_STATS);
         }
-        /*final VersionUpdateUtils versionUpdateUtils = new VersionUpdateUtils(mVersion,SplashActivity.this);
-         new Thread(){
-             @Override
-             public  void run(){
-                 super.run();
-                versionUpdateUtils.getCloudVersion();
-             }
-         }.start();*/
-        startActivity(new Intent(this, HomeActivity.class));
-        finish();
-    }
+        VersionUpdateUtils.DownloadCallback downloadCallback = new VersionUpdateUtils.DownloadCallback() {
+            @Override
+            public void afterDownload(String filename) {
+                MyUtils.installApk(SplashActivity.this,filename);
+            }
+        };
+        final VersionUpdateUtils versionUpdateUtils=new VersionUpdateUtils(mVersion,SplashActivity.this,downloadCallback,HomeActivity.class);
+        new Thread(){
+            @Override
+            public void run(){
+                super.run();
+                versionUpdateUtils.getCloudVersion("http://android2017.duapp.com/updateinfo.html");
 
+            }
+        }.start();
+        //startActivity(new Intent(this, HomeActivity.class));
+        //finish();
+    }
     private boolean hasPermission() {
         AppOpsManager appOps = (AppOpsManager)
                 getSystemService(Context.APP_OPS_SERVICE);
@@ -55,18 +60,18 @@ public class SplashActivity extends AppCompatActivity {
         return mode == AppOpsManager.MODE_ALLOWED;
     }
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
         if (requestCode == MY_PERMISSIONS_REQUEST_PACKAGE_USAGE_STATS) {
             if (!hasPermission()) {
-                //若用户未开启权限，则引导用户开启"Apps with usage access"权限
+                //若用户未开启权限，则引导用户开启“Apps with usage access”权限
                 startActivityForResult(
-                        new Intent(Settings.ACTION_USER_DICTIONARY_SETTINGS),
+                        new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS),
                         MY_PERMISSIONS_REQUEST_PACKAGE_USAGE_STATS);
             }
         }
     }
 }
-
 
 
 

@@ -28,6 +28,7 @@ import cn.edu.gdmec.android.mobileguard.m5virusscan.VirusScanActivity;
 import cn.edu.gdmec.android.mobileguard.m6cleancache.CacheClearListActivity;
 import cn.edu.gdmec.android.mobileguard.m8trafficmonitor.OperatorSetActivity;
 import cn.edu.gdmec.android.mobileguard.m8trafficmonitor.TrafficMonitoringActivity;
+import cn.edu.gdmec.android.mobileguard.m8trafficmonitor.service.TrafficMonitoringService;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.AdvancedToolsActivity;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.NumBelongtoActivity;
 
@@ -51,7 +52,6 @@ public class HomeActivity extends AppCompatActivity {
         gv_home.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                System.out.print(i);
                 switch (i) {
                     case 0:
                         if (isSetUpPassword()) {
@@ -74,7 +74,6 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case 6:
                         startActivity( TrafficMonitoringActivity.class );
-                        startActivity( OperatorSetActivity.class );
                         break;
                     case 7:
                         startActivity(AdvancedToolsActivity.class);
