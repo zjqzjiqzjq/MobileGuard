@@ -1,12 +1,11 @@
 package cn.edu.gdmec.android.mobileguard.m5virusscan.dao;
 
+
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-/**
- * Created by Administrator on 2017/11/13.
- */
+
 
 public class AntiVirusDao {
     private static Context context;

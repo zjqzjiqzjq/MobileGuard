@@ -1,5 +1,6 @@
 package cn.edu.gdmec.android.mobileguard.m5virusscan;
 
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
