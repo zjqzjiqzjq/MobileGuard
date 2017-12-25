@@ -14,6 +14,8 @@ import android.util.Log;
  */
 
 public class App extends Application {
+    public static  final String APPLOCK_ACTION = "cn.edu.gdmec.android.mobileguard.m9advancedtools.applock";
+    public static final  String APPLOCK_CONTENT_URI = "content://cn.edu.gdmec.android.mobileguard.m9advancedtools.applock";
     @Override
     public void onCreate() {
         super.onCreate();
@@ -31,6 +33,7 @@ public class App extends Application {
             if (bindsim.equals(realsim)){
                 Log.i("", "sim卡未发生改变，还是您的手机");
             }else {
+
                 Log.i("", "sim卡改变了");
                 String safenumber = sp.getString("safephone", "");
                 if (!TextUtils.isEmpty(safenumber)){

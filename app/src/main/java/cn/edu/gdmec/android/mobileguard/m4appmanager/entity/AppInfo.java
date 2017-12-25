@@ -30,6 +30,9 @@ public class AppInfo {
     public String appPremissions;
     /*应用程序的活动*/
     public String appActivities;
+    /*应用程序是否加锁*/
+    public boolean isLock;
+
 
 
     /*是否是手机储存*/
