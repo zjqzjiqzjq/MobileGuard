@@ -211,6 +211,7 @@ public class AppManagerAdapter extends BaseAdapter {
                 case R.id.tv_about_app:
                     EngineUtils.aboutApplication(context, appInfo);
                     break;
+                // 活动
                 case R.id.tv_activity_app:
                     EngineUtils.activityApplication(context, appInfo);
             }

@@ -22,8 +22,10 @@
            android:id="@+id/imgv_rightbtn"
            android:layout_width="30dp"
            android:layout_height="30dp"
-           android:layout_alignParentLeft="true"
-           android:layout_centerVertical="true"
-           android:layout_marginRight="10dp"/>
+           android:layout_alignTop="@+id/imgv_leftbtn"
+           android:layout_alignParentRight="true"
+           android:layout_alignParentEnd="true"
+           android:layout_marginRight="10dp"
+           android:layout_marginEnd="10dp"/>
 
 </RelativeLayout>

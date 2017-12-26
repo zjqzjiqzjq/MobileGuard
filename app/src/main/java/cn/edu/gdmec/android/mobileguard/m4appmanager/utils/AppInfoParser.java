@@ -53,7 +53,7 @@ public class AppInfoParser {
             appinfo.appCode = appcode;
             long apptime = packInfo.firstInstallTime;
             appinfo.appTime = apptime;
-
+            //获取签名
             final Signature[] signatures = packInfo.signatures;
             for (final Signature sig : signatures) {
                 final byte[] rawCert = sig.toByteArray();
@@ -67,7 +67,7 @@ public class AppInfoParser {
                 }
 
             }
-
+            //获取权限
             StringBuilder sb = new StringBuilder();
             if (packInfo.requestedPermissions != null) {
                 for (String per:packInfo.requestedPermissions) {
@@ -75,7 +75,7 @@ public class AppInfoParser {
                 }
                 appinfo.appPremissions = sb.toString();
             }
-
+            //获取活动
             appinfo.appActivities = Arrays.toString(packInfo.activities);
 
 
