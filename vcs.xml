@@ -30,8 +30,12 @@
           <option name="url" value="https://github.com/Wuwu2017/Boxueguu.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/baldrsky/boxuegu.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/Desktop/071606" />
+    <option name="cloneParentDir" value="$USER_HOME$/Desktop/07060640" />
   </component>
 </application>
